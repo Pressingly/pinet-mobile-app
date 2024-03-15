@@ -27,3 +27,9 @@ migrate_working_dir/
 **/doc/api/
 .dart_tool/
 build/
+
+# Generated Files
+*.gen.dart
+*.gm.dart
+*.g.dart
+.env.*
