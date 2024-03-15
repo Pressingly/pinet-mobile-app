@@ -1,7 +1,7 @@
 import 'package:common/common.dart';
 import 'package:configuration/env/env.dev.dart';
 import 'package:configuration/env/env.stg.dart';
-import 'package:design/color_schemes.g.dart';
+import 'package:design/color_schemes.dart';
 import 'package:design/pinet.theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
