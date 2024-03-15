@@ -1,0 +1,29 @@
+name: configuration
+description: "Initialize app configuration"
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  envied: ^0.5.3
+  flutter:
+    sdk: flutter
+  common:
+    path: ../common
+  design:
+    path: ../design
+  routing:
+    path: ../../routing
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  envied_generator: ^0.5.3
+  build_runner: ^2.4.8
+
+flutter:
+  uses-material-design: true

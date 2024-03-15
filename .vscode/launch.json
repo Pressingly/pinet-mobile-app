@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "Launch Development Debug",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor", "Development",
+            ],
+            "flutterMode": "debug",
+            "program": "${workspaceFolder}/lib/main.dart"
+        },
+        {
+            "name": "Launch Development Release",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor", "Development",
+            ],
+            "flutterMode": "release",
+            "program": "${workspaceFolder}/lib/main.dart"
+        }
+    ]
+}

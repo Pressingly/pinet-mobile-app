@@ -1,0 +1,25 @@
+name: routing
+description: "A new Flutter package project."
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  auto_route: ^7.8.4
+  dashboard:
+    path: ../features/dashboard
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  auto_route_generator: ^7.3.2
+  build_runner: ^2.4.8
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true

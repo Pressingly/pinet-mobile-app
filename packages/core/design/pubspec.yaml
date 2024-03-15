@@ -1,0 +1,35 @@
+name: design
+description: "Design System UI for whole app"
+version: 0.0.1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  lottie: ^3.1.0
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  build_runner: ^2.4.8
+  flutter_gen_runner: ^5.4.0
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter: 
+  uses-material-design: true
+
+  assets:
+  - assets/images/
+  - assets/anims/
+  
+flutter_gen:
+  assets:
+    outputs:
+      package_parameter_enabled: true
+  integrations:
+    flutter_svg: true
+    lottie: true

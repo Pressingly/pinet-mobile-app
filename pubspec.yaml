@@ -1,0 +1,34 @@
+name: pinet_app
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  lottie: ^3.1.0
+  configuration:
+    path: packages/core/configuration
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  
+  fonts:
+    - family: RobotoCondensed
+      fonts:
+      - asset: packages/core/design/fonts/RobotoCondensed-VariableFont_wght.ttf
+        style: normal
+      - asset: packages/core/design/fonts/RobotoCondensed-Italic-VariableFont_wght.ttf
+        style: italic
+    - family: Eczar
+      fonts:
+      - asset: packages/core/design/fonts/Eczar-VariableFont_wght.ttf
