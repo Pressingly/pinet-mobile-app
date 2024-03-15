@@ -1,0 +1,30 @@
+name: Flutter analyze and check code format
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - "**"
+jobs:
+  ci_flutter:
+    name: enforce formatting and linting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.16.9
+
+      - name: Install Flutter dependencies
+        run: make get
+
+      - name: Build Runner
+        run: make build-runner
+
+      - name: Analyze files
+        run: make lint
+
+      - name: Check format files exclude generate files
+        run: make format

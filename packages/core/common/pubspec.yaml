@@ -1,5 +1,5 @@
 name: common
-description: "A new Flutter package project."
+description: "PINET App Core Common"
 version: 0.0.1
 publish_to: none
 
@@ -13,7 +13,6 @@ dependencies:
   get_it: ^7.6.7
 
 dev_dependencies:
-  build_runner: ^2.4.8
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'color_schemes.g.dart';
+import 'color_schemes.dart';
 
 const pinetDefaultFont = 'RobotoCondensed';
 

@@ -1,5 +1,5 @@
 name: routing
-description: "A new Flutter package project."
+description: "PINET Mobile App Routing"
 version: 0.0.1
 publish_to: none
 
@@ -8,9 +8,12 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  auto_route: ^7.8.4
+  # Internal Packages
   dashboard:
-    path: ../features/dashboard
+    path: ../../features/dashboard
+  # End of Internal Packages
+  
+  auto_route: ^7.8.4
   flutter:
     sdk: flutter
 

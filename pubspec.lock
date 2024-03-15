@@ -250,7 +250,7 @@ packages:
   routing:
     dependency: transitive
     description:
-      path: "packages/routing"
+      path: "packages/core/routing"
       relative: true
     source: path
     version: "0.0.1"

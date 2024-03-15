@@ -8,22 +8,25 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  envied: ^0.5.3
-  flutter:
-    sdk: flutter
+  # Internal Packages
   common:
     path: ../common
   design:
     path: ../design
   routing:
-    path: ../../routing
+    path: ../routing
+  # End of Internal Packages
+  
+  envied: ^0.5.3
+  flutter:
+    sdk: flutter
 
 dev_dependencies:
+  build_runner: ^2.4.8
+  envied_generator: ^0.5.3
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-  envied_generator: ^0.5.3
-  build_runner: ^2.4.8
 
 flutter:
   uses-material-design: true

@@ -1,7 +1,6 @@
 PACKAGES := $(wildcard packages/*)
 CORE := $(wildcard packages/core/*)
 FEATURES := $(wildcard packages/features/*)
-BUILD-RUNNER := packages/core/configuration packages/routing
 
 print:
 	@for feature in $(CORE); do \
@@ -13,6 +12,7 @@ print:
 	@for package in $(PACKAGES); do \
 		echo $${package} ; \
 	done
+
 get:
 	@flutter pub get
 	@for feature in $(FEATURES); do \
@@ -55,7 +55,7 @@ lint:
 	@flutter analyze
 
 format:
-	@flutter format --set-exit-if-changed .
+	@find packages -name "*.dart" ! -name "*.g.dart" ! -name "*.gr.dart" ! -name "*.freezed.dart" ! -path '*/generated/*'  | tr '\n' ' ' | xargs dart format -l "80"
 
 testing:
 	@flutter test
@@ -89,27 +89,30 @@ test-coverage:
 
 clean:
 	@flutter clean
+	@find . -maxdepth 20 -type f \( -name "*.gm.dart" -o  -name "*.g.dart" \) -delete
 	@for feature in $(FEATURES); do \
 		cd $${feature} ; \
 		echo "Running clean on $${feature}" ; \
 		flutter clean ; \
 		cd ../../../ ; \
 	done
-	@for package in $(PACKAGES); do \
+	@for package in $(CORE); do \
 		cd $${package} ; \
 		echo "Running clean on $${package}" ; \
 		flutter clean ; \
-		cd ../../ ; \
+		cd ../../../ ; \
 	done
 
 build-runner:
-	@for package in $(BUILD-RUNNER); do \
+	@for package in $(FEATURES); do \
 		cd $${package} ; \
 		echo "Running build-runner on $${package}" ; \
-		flutter pub run build_runner build --delete-conflicting-outputs ; \
-		cd ../../ ; \
+		dart run build_runner build --delete-conflicting-outputs ; \
+		cd ../../../ ; \
 	done
-
-gen-assets:
-	@cd packages/core/design;  \
-	dart run build_runner build --build-filter="lib/gen/assets.gen.dart";
+	@for package in $(CORE); do \
+		cd $${package} ; \
+		echo "Running build-runner on $${package}" ; \
+		dart run build_runner build --delete-conflicting-outputs ; \
+		cd ../../../ ; \
+	done
