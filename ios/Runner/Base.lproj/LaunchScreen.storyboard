@@ -19,18 +19,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="YRO-k0-Ey4">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="EIZ-0E-yOg">
                                 <rect key="frame" x="132.66666666666666" y="362" width="127.99999999999997" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="Usb-iM-UGe"/>
-                                    <constraint firstAttribute="height" constant="128" id="r9L-08-weT"/>
+                                    <constraint firstAttribute="width" constant="128" id="8GN-9n-RFT"/>
+                                    <constraint firstAttribute="height" constant="128" id="Tuc-IK-iWE"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.23921568627450979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YRO-k0-Ey4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1a2-6s-vTC"/>
-                            <constraint firstItem="YRO-k0-Ey4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="4X2-HB-R7a"/>
+                            <constraint firstItem="EIZ-0E-yOg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="EAd-U8-5lV"/>
+                            <constraint firstItem="EIZ-0E-yOg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="xcH-F7-5Id"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchImage" width="256" height="256"/>
+        <image name="LaunchImage" width="128" height="128"/>
     </resources>
 </document>

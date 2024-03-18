@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "434759126097",
+    "project_id": "pinet-47500",
+    "storage_bucket": "pinet-47500.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434759126097:android:d090b64af816eae570bc70",
+        "android_client_info": {
+          "package_name": "com.pressingly.pinet.prod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "434759126097-j6r2qt40mfmidpfntcpjsjti8qg094ol.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pressingly.pinet.prod",
+            "certificate_hash": "09e8b50ff010362274bd33cba977c779520f106b"
+          }
+        },
+        {
+          "client_id": "434759126097-mqetorn7n1v41pa9n9rfqocs3e1vqpdn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pressingly.pinet.prod",
+            "certificate_hash": "8c6feb6cd566a559242b9b63ca1a171b8d99a96c"
+          }
+        },
+        {
+          "client_id": "434759126097-k8ijvm546n01ntebta6eqo7dqrnjqv0m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeNHxIxiqItFwhZKIuXeIojpN9R4Tz-9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "434759126097-1k04g2quejd5ncesbib4jb416v01ojb2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "434759126097-d21qlpdtv29980n40e31d2eduenjpurf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.pressingly.pinet.prod"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

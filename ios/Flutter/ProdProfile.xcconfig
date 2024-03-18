@@ -1,0 +1,7 @@
+#include "Generated.xcconfig"
+
+FLUTTER_TARGET=lib/main.dart
+ASSET_PREFIX=
+BUNDLE_NAME=PINET
+BUNDLE_DISPLAY_NAME=PINET
+GOOGLE_REVERSED_CLIENT_ID=com.googleusercontent.apps.906405770512-7ou2unhiio5jhr8dvjg92gv2561p9tqu

@@ -1,21 +1,41 @@
 {
     "configurations": [
         {
-            "name": "Launch Development Debug",
+            "name": "Launch Dev Debug",
             "request": "launch",
             "type": "dart",
             "args": [
-                "--flavor", "Development",
+                "--flavor", "Dev",
             ],
             "flutterMode": "debug",
             "program": "${workspaceFolder}/lib/main.dart"
         },
         {
-            "name": "Launch Development Release",
+            "name": "Launch Dev Release",
             "request": "launch",
             "type": "dart",
             "args": [
-                "--flavor", "Development",
+                "--flavor", "Dev",
+            ],
+            "flutterMode": "release",
+            "program": "${workspaceFolder}/lib/main.dart"
+        },
+        {
+            "name": "Launch Pro Debug",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor", "Prod",
+            ],
+            "flutterMode": "debug",
+            "program": "${workspaceFolder}/lib/main.dart"
+        },
+        {
+            "name": "Launch Pro Release",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor", "Prod",
             ],
             "flutterMode": "release",
             "program": "${workspaceFolder}/lib/main.dart"

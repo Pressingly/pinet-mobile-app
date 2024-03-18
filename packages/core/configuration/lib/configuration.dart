@@ -1,6 +1,6 @@
 import 'package:common/common.dart';
 import 'package:configuration/env/env.dev.dart';
-import 'package:configuration/env/env.stg.dart';
+import 'package:configuration/env/env.prod.dart';
 import 'package:design/color_schemes.dart';
 import 'package:design/pinet.theme.dart';
 import 'package:flutter/material.dart';
@@ -8,11 +8,11 @@ import 'package:flutter/services.dart';
 import 'package:routing/routing.dart';
 
 enum Environment {
-  development(
+  dev(
     apiEndpoint: EnvDev.apiEndpoint,
   ),
-  staging(
-    apiEndpoint: EnvStg.apiEndpoint,
+  prod(
+    apiEndpoint: EnvProd.apiEndpoint,
   );
 
   const Environment({
@@ -23,10 +23,10 @@ enum Environment {
 
   factory Environment.fromFlavor(String flavor) {
     switch (flavor) {
-      case "Staging":
-        return Environment.staging;
+      case "Prod":
+        return Environment.prod;
       default:
-        return Environment.development;
+        return Environment.dev;
     }
   }
 }

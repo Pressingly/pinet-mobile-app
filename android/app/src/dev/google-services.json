@@ -1,0 +1,78 @@
+{
+  "project_info": {
+    "project_number": "906405770512",
+    "project_id": "pinet-dev",
+    "storage_bucket": "pinet-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906405770512:android:077001cef12d5ffe172195",
+        "android_client_info": {
+          "package_name": "com.pressingly.pinet.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "906405770512-3hjm1ck39qu5of5h4umjdauchcvhn3gk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pressingly.pinet.dev",
+            "certificate_hash": "09e8b50ff010362274bd33cba977c779520f106b"
+          }
+        },
+        {
+          "client_id": "906405770512-3n096492k01rvqu4vi71k8d0bmvfu0ql.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pressingly.pinet.dev",
+            "certificate_hash": "c1c13f71120964eb71485a8f073712c175363dea"
+          }
+        },
+        {
+          "client_id": "906405770512-3o6d1lrgdcmq542aeqdvlknog1s777de.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pressingly.pinet.dev",
+            "certificate_hash": "c3e82494571e4b104bcedf6c817b7518e6a6fcc7"
+          }
+        },
+        {
+          "client_id": "906405770512-flgn5sa2ouf6857vl210ueicc54cjuvg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pressingly.pinet.dev",
+            "certificate_hash": "8c6feb6cd566a559242b9b63ca1a171b8d99a96c"
+          }
+        },
+        {
+          "client_id": "906405770512-n7n349dl8vrj4g4jhbseehll1qbl1erc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqSnJxMhXllB3vTiHwgoYe7CjjxDhzuoA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "906405770512-n7n349dl8vrj4g4jhbseehll1qbl1erc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "906405770512-7ou2unhiio5jhr8dvjg92gv2561p9tqu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.pressingly.pinet.dev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
