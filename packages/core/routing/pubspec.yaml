@@ -4,25 +4,30 @@ version: 0.0.1
 publish_to: none
 
 environment:
-  sdk: '>=3.2.6 <4.0.0'
+  sdk: ">=3.2.6 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
-  # Internal Packages
+  authentication:
+    path: ../../features/authentication
+  auto_route: ^7.8.4
   dashboard:
     path: ../../features/dashboard
-  # End of Internal Packages
-  
-  auto_route: ^7.8.4
+  design:
+    path: ../design
   flutter:
     sdk: flutter
+  settings:
+    path: ../../features/settings
+  transaction:
+    path: ../../features/transaction
 
 dev_dependencies:
   auto_route_generator: ^7.3.2
   build_runner: ^2.4.8
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
 
 flutter:
   uses-material-design: true

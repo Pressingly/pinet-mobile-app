@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:design/gen/assets.gen.dart';
-import 'package:design/pinet.theme.dart';
+import 'package:design/design.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -64,16 +63,36 @@ class _DashboardPageState extends State<DashboardPage>
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        Assets.images.qrCodeIllustration.image(
+          width: 284,
+          height: 244,
+        ),
+        const Gap(64),
         Text(
           'Simplify  your digital  consumption',
           style: context.textTheme.bodyLargeProminent,
         ),
-        const SizedBox(height: 16),
+        const Gap(12),
         Text(
           'PINET makes your digital consumption more\nconvenient and accessible',
           style: context.textTheme.bodyMedium,
           textAlign: TextAlign.center,
-        )
+        ),
+        const Gap(24),
+        FilledButton(
+          style: FilledButton.styleFrom(),
+          onPressed: () {
+            context.router.push(
+              const PageRouteInfo('ScanQRCodeRoute'),
+            );
+          },
+          child: Text(
+            "I'm ready to begin",
+            style: context.textTheme.labelLarge?.copyWith(
+              color: context.theme.colorScheme.onPrimary,
+            ),
+          ),
+        ),
       ],
     );
   }
