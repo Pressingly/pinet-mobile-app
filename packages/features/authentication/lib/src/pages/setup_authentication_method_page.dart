@@ -57,9 +57,9 @@ class SetupAuthenticationMethodPage extends StatelessWidget {
               ),
             ),
             TextButton(
-              onPressed: () => context.router.push(
+              onPressed: () => context.router.replaceAll([
                 const PageRouteInfo('HomeRoute'),
-              ),
+              ]),
               child: Text(
                 'Setup Later',
                 style: context.theme.textTheme.labelLarge?.copyWith(

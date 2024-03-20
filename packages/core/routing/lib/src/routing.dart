@@ -4,7 +4,6 @@ import 'package:dashboard/dashboard.dart';
 import 'package:settings/settings.dart';
 import 'package:transaction/transaction.dart';
 import 'pages/home_page.dart';
-import 'pages/temp_page.dart';
 
 part 'routing.gr.dart';
 

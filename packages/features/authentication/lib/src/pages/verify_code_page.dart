@@ -1,7 +1,9 @@
 import 'package:authentication/authentication.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 @RoutePage()
 class VerifyCodePage extends StatelessWidget {
@@ -37,6 +39,12 @@ class VerifyCodePage extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                             color: Theme.of(context).colorScheme.surfaceTint,
                           ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          final url =
+                              Uri.parse('https://unitedairlines.onrender.com');
+                          await launchUrl(url);
+                        },
                     ),
                     const TextSpan(
                       text: ' to complete your registration',

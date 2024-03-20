@@ -8,12 +8,13 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  auto_route: ^7.9.0
   design:
     path: ../../core/design
-  auto_route: ^7.9.0
   flutter:
     sdk: flutter
   qr_code_scanner: ^1.0.1
+  url_launcher: ^6.2.5
 
 dev_dependencies:
   auto_route_generator: ^7.3.2

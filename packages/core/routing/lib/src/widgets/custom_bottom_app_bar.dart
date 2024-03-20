@@ -16,12 +16,20 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
   @override
   void initState() {
     tabsRouter = AutoTabsRouter.of(context);
-    tabsRouter.addListener(() {
-      setState(() {
-        currentActiveIndex = tabsRouter.activeIndex;
-      });
-    });
+    tabsRouter.addListener(_onTabsRouterListener);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    tabsRouter.removeListener(_onTabsRouterListener);
+    super.dispose();
+  }
+
+  void _onTabsRouterListener() {
+    setState(() {
+      currentActiveIndex = tabsRouter.activeIndex;
+    });
   }
 
   @override
