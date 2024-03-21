@@ -1,0 +1,44 @@
+name: Build Android APK
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        required: true
+        description: "Environment"
+        options:
+          - dev
+          - prod
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.19.3
+          channel: "stable"
+      - run: flutter --version
+
+      - name: Install Flutter dependencies
+        run: make get
+
+      - name: Build Runner
+        run: make build-runner
+
+      - name: Analyze files
+        run: make lint
+
+      - name: Check format files exclude generate files
+        run: make format
+
+      - name: Build apk
+        run: flutter build apk --release --flavor ${{ github.event.inputs.environment }} --target lib/main_${{ github.event.inputs.environment }}.dart
+
+      - name: Archive PINET ${{ github.event.inputs.environment }} artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pinet_${{ github.event.inputs.environment }}_apk
+          path: build/app/outputs/flutter-apk/app-${{ github.event.inputs.environment }}-release.apk
