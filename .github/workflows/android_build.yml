@@ -35,7 +35,7 @@ jobs:
         run: make format
 
       - name: Build apk
-        run: flutter build apk --release --flavor ${{ github.event.inputs.environment }} --target lib/main_${{ github.event.inputs.environment }}.dart
+        run: flutter build apk --release --flavor ${{ github.event.inputs.environment }} --target lib/main.dart
 
       - name: Archive PINET ${{ github.event.inputs.environment }} artifacts
         uses: actions/upload-artifact@v4
