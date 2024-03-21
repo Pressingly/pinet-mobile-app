@@ -9,6 +9,8 @@ environment:
 
 dependencies:
   # Internal Packages
+  common:
+    path: ../../core/common
   design:
     path: ../../core/design
   # End of Internal Packages

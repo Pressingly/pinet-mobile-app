@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:design/design.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:transaction/src/widgets/select_period_bottom_sheet.dart';
 import 'package:transaction/src/widgets/transaction_list_tile_widget.dart';
 
 @RoutePage()
@@ -136,15 +140,9 @@ class TransactionHomePage extends StatelessWidget {
   }
 
   Future<void> _onSelectMonthButtonPressed(BuildContext context) async {
-    await showModalBottomSheet(
-      context: context,
-      showDragHandle: true,
-      constraints: const BoxConstraints(
-        maxHeight: 200,
-      ),
-      builder: (context) {
-        return Container();
-      },
-    );
+    final result = await SelectPeriodBottomSheet.show(context);
+    if (result != null && kDebugMode) {
+      log('Select Period: $result');
+    }
   }
 }
