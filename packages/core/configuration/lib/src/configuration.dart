@@ -58,7 +58,9 @@ class PinetApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: pinetThemeData,
       darkTheme: pinetDarkThemeData,
-      routerConfig: getIt<AppRouter>().config(),
+      routerConfig: getIt<AppRouter>().config(
+        navigatorObservers: () => [HeroController()],
+      ),
     );
   }
 }

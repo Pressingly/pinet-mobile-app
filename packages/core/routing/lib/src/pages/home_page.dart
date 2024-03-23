@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:design/design.dart';
 import 'package:flutter/material.dart';
 import 'package:routing/src/widgets/custom_bottom_app_bar.dart';
 import 'package:settings/settings.dart';
@@ -26,6 +27,8 @@ class HomePage extends StatelessWidget {
             onPressed: () {},
             tooltip: 'QR Code Scanner',
             elevation: 0,
+            backgroundColor: context.theme.colorScheme.secondaryContainer,
+            foregroundColor: context.theme.colorScheme.onSecondaryContainer,
             child: const Icon(Icons.qr_code_scanner),
           ),
           floatingActionButtonLocation:

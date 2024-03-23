@@ -114,27 +114,32 @@ class TransactionHomePage extends StatelessWidget {
   }
 
   Widget _buildTransactionListPanel() {
+    final transactions = List.generate(3, (index) => index + 1);
     return Card.outlined(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            const Align(
+      child: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(16),
+            child: Align(
               alignment: Alignment.topLeft,
               child: Text('Transactions'),
             ),
-            const Gap(16),
-            Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: List.filled(3, 0, growable: true).length,
-                itemBuilder: (context, index) {
-                  return const TransactionListTileWidget();
-                },
+          ),
+          Expanded(
+            child: ListView.builder(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 8,
               ),
+              shrinkWrap: true,
+              itemCount: transactions.length,
+              itemBuilder: (context, index) {
+                return TransactionListTileWidget(
+                  transactionId: transactions[index],
+                );
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

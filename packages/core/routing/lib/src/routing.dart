@@ -37,6 +37,7 @@ class AppRouter extends _$AppRouter {
           AutoRoute(page: SettingsHomeRoute.page),
         ],
       ),
+      AutoRoute(page: TransactionDetailRoute.page),
     ];
   }
 }
