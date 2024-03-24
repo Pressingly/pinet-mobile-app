@@ -45,4 +45,6 @@ app.*.map.json
 # Generated Files
 *.gen.dart
 *.gm.dart
+*.gr.dart
 *.g.dart
+pubspec_overrides.yaml

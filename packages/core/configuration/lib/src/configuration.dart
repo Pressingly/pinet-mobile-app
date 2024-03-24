@@ -50,7 +50,7 @@ class AppConfiguration {
 }
 
 class PinetApp extends StatelessWidget {
-  const PinetApp({Key? key}) : super(key: key);
+  const PinetApp({super.key});
 
   @override
   Widget build(BuildContext context) {
