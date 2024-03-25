@@ -13,6 +13,7 @@ on:
 
 jobs:
   build:
+    environment: ${{ github.event.inputs.environment }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -36,6 +37,20 @@ jobs:
 
       - name: Build apk
         run: flutter build apk --release --flavor ${{ github.event.inputs.environment }} --target lib/main.dart
+
+      - name: Read Changelog
+        id: changelog
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./metadata/changelog.txt
+
+      - name: Upload artifact to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+          groups: testers
+          file: build/app/outputs/flutter-apk/app-${{ github.event.inputs.environment }}-release.apk
 
       - name: Archive PINET ${{ github.event.inputs.environment }} artifacts
         uses: actions/upload-artifact@v4

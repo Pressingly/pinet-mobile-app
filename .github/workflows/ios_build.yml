@@ -1,0 +1,88 @@
+name: Build iOS
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_version:
+        description: "Enter deploy version"
+        required: true
+        type: string
+      deploy_build_number:
+        description: "Enter deploy build number"
+        required: true
+        type: string
+      environment:
+        type: choice
+        required: true
+        description: "Environment"
+        options:
+          - dev
+          - prod
+
+jobs:
+  build:
+    environment: ${{ github.event.inputs.environment }}
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.19.3
+          architecture: x64
+          cache: true
+
+      - run: flutter --version
+
+      - name: Install Flutter dependencies
+        run: make get
+
+      - name: Build Runner
+        run: make build-runner
+
+      - name: Initializing fastlane
+        working-directory: ios
+        run: |
+          bundle install
+
+      - name: Read Changelog
+        id: changelog
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./metadata/changelog.txt
+
+      - name: Deploy build to TestFlight via Fastlane
+        uses: maierj/fastlane-action@v3.1.0
+        with:
+          lane: deploy
+          subdirectory: ios
+        env:
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: "${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}"
+          FASTLANE_USER: "${{ secrets.FASTLANE_USER }}"
+          MATCH_PASSWORD: "${{ secrets.MATCH_PASSWORD }}"
+          MATCH_GIT_URL: "${{ secrets.MATCH_GIT_URL }}"
+          MATCH_GIT_AUTHORIZATION: "${{ secrets.MATCH_GIT_AUTHORIZATION }}"
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY: ${{ secrets.ASC_KEY }}
+          APP_BUILD_NAME: "${{ github.event.inputs.deploy_version }}"
+          APP_BUILD_NUMBER: "${{ github.event.inputs.deploy_build_number }}"
+          CHANGELOG: "${{ steps.changelog.outputs.content }}"
+
+      - name: Upload artifact to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+          groups: testers
+          file: build/app/outputs/flutter-apk/app-${{ github.event.inputs.environment }}-release.apk
+
+      - name: Upload app-store ipa and dsyms to artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-store ipa & dsyms
+          path: |
+            ${{ github.workspace }}/build/ios/ipa/pniet_app.ipa
+            ${{ github.workspace }}/*.app.dSYM.zip
