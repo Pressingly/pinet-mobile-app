@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:authentication/src/authentication_route_module.gm.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:design/design.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 @RoutePage()
@@ -33,7 +33,7 @@ class _ScanQRCodePageState extends State<ScanQRCodePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Scan QR Code'),
+        title: Text(context.l10n.scanQRCode),
         centerTitle: true,
         leading: IconButton(
           onPressed: context.router.back,
@@ -53,7 +53,7 @@ class _ScanQRCodePageState extends State<ScanQRCodePage> {
                 await controller.resumeCamera();
               },
               child: Text(
-                'Hold the code inside the frame, it will\nbe scanned automatically',
+                context.l10n.scanQRCodeGuide,
                 style: Theme.of(context).textTheme.titleMedium,
                 textAlign: TextAlign.center,
               ),

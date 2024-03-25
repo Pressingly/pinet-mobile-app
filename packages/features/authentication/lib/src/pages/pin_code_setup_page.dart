@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:design/design.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 
 @RoutePage()
 class PinCodeSetupPage extends StatelessWidget {
@@ -12,7 +12,7 @@ class PinCodeSetupPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Setup PIN Code'),
+        title: Text(context.l10n.pinCodeSetup),
         centerTitle: true,
         leading: IconButton(
           onPressed: context.router.back,
@@ -26,7 +26,7 @@ class PinCodeSetupPage extends StatelessWidget {
             const Gap(64),
             Align(
               child: Text(
-                'Use a 6-digits PIN Code to sign in to the app',
+                context.l10n.pinCodeSetupTitle,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
@@ -82,7 +82,7 @@ class PinCodeSetupPage extends StatelessWidget {
               style: FilledButton.styleFrom(
                 fixedSize: Size(MediaQuery.of(context).size.width - 64, 40),
               ),
-              child: const Text('Submit'),
+              child: Text(context.l10n.submit),
             ),
             const Gap(32),
           ],

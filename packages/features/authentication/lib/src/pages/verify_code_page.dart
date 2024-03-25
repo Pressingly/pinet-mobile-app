@@ -1,8 +1,8 @@
 import 'package:authentication/authentication.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:design/design.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 @RoutePage()
@@ -13,7 +13,7 @@ class VerifyCodePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Verify Code'),
+        title: Text(context.l10n.verifyCode),
         centerTitle: true,
         leading: IconButton(
           onPressed: context.router.back,
@@ -25,13 +25,13 @@ class VerifyCodePage extends StatelessWidget {
           const Gap(64),
           Align(
             child: GestureDetector(
-              onTap: () => context.router.push(
+              onTap: () => context.router.replaceAll([
                 const SetupAuthenticationMethodRoute(),
-              ),
+              ]),
               child: RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  text: 'Input this code on the ',
+                  text: context.l10n.verifyCodeGuidePrefix,
                   style: Theme.of(context).textTheme.titleMedium,
                   children: [
                     TextSpan(
@@ -46,9 +46,7 @@ class VerifyCodePage extends StatelessWidget {
                           await launchUrl(url);
                         },
                     ),
-                    const TextSpan(
-                      text: ' to complete your registration',
-                    ),
+                    TextSpan(text: context.l10n.verifyCodeGuideSuffix),
                   ],
                 ),
               ),

@@ -61,6 +61,8 @@ class PinetApp extends StatelessWidget {
       routerConfig: getIt<AppRouter>().config(
         navigatorObservers: () => [HeroController()],
       ),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }

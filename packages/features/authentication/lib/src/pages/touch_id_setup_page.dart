@@ -1,10 +1,7 @@
-import 'dart:developer';
-
+import 'package:authentication/src/utils/local_auth_service.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:design/design.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:local_auth/local_auth.dart';
 
 @RoutePage()
 class TouchIDSetupPage extends StatelessWidget {
@@ -14,7 +11,7 @@ class TouchIDSetupPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Touch ID'),
+        title: Text(context.l10n.biometricTouchIDSetup),
         centerTitle: true,
         leading: IconButton(
           onPressed: context.router.back,
@@ -30,20 +27,24 @@ class TouchIDSetupPage extends StatelessWidget {
             ),
             const Gap(32),
             Text(
-              'Touch ID is now available! Enabling Touch ID\nwill give you faster access to your information',
+              context.l10n.biometricSetupTitle('Touch'),
               style: context.theme.textTheme.titleMedium,
               textAlign: TextAlign.center,
             ),
             const Gap(24),
             Text(
-              'You can turn this feature on or off at any time\nunder Settings.',
+              context.l10n.biometricSetupDesc,
               style: context.theme.textTheme.titleMedium,
               textAlign: TextAlign.center,
             ),
             const Spacer(),
             FilledButton(
               onPressed: () async {
-                if (await _authenticateUser()) {
+                final result = await LocalAuthService.authenticateUser(
+                  context,
+                  context.l10n.biometricSetupTitle('Touch'),
+                );
+                if (result) {
                   context.router.replaceAll([
                     const PageRouteInfo('HomeRoute'),
                   ]);
@@ -52,33 +53,11 @@ class TouchIDSetupPage extends StatelessWidget {
               style: FilledButton.styleFrom(
                 fixedSize: Size(MediaQuery.of(context).size.width - 64, 40),
               ),
-              child: const Text('Enable'),
+              child: Text(context.l10n.biometricSetupLater),
             ),
           ],
         ),
       ),
     );
-  }
-
-  Future<bool> _authenticateUser() async {
-    final localAuthentication = LocalAuthentication();
-    var isAuthenticated = false;
-    final isBiometricSupported = await localAuthentication.isDeviceSupported();
-    final canCheckBiometrics = await localAuthentication.canCheckBiometrics;
-
-    if (isBiometricSupported && canCheckBiometrics) {
-      try {
-        isAuthenticated = await localAuthentication.authenticate(
-          localizedReason: 'Scan your fingerprint to authenticate',
-          options: const AuthenticationOptions(
-            biometricOnly: true,
-            stickyAuth: true,
-          ),
-        );
-      } on PlatformException catch (e) {
-        log('Error: $e');
-      }
-    }
-    return isAuthenticated;
   }
 }

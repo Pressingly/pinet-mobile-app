@@ -11,44 +11,44 @@ class SettingsHomePage extends StatelessWidget {
     final settingsItems = <SettingItem>[
       SettingItem(
         icon: Icons.person_outlined,
-        title: 'Profile',
+        title: context.l10n.profile,
         onTap: () => {},
       ),
       SettingItem(
         icon: CustomIcons.faceId,
-        title: 'Setup Face ID',
+        title: context.l10n.biometricFaceIDSetup,
         onTap: () => {},
       ),
       SettingItem(
         icon: Icons.notifications_outlined,
-        title: 'Notification',
+        title: context.l10n.notification,
         onTap: () => {},
       ),
       SettingItem(
         icon: Icons.language,
-        title: 'Language',
+        title: context.l10n.language,
         onTap: () => {},
       ),
       SettingItem(
         icon: Icons.policy_outlined,
-        title: 'User Policies',
+        title: context.l10n.userPolicy,
         onTap: () => {},
       ),
       SettingItem(
         icon: Icons.info_outline,
-        title: 'About',
+        title: context.l10n.about,
         onTap: () => {},
       ),
       SettingItem(
         icon: Icons.logout,
-        title: 'Logout',
+        title: context.l10n.logOut,
         onTap: () => _onLogoutItemPressed(context),
       ),
     ];
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: Text(context.l10n.settings),
         centerTitle: true,
       ),
       body: ListView.builder(

@@ -1,3 +1,4 @@
+import 'package:design/design.dart';
 import 'package:design/src/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -44,4 +45,8 @@ extension DesignThemeContext on BuildContext {
 extension DimensionContext on BuildContext {
   double get sw => MediaQuery.of(this).size.width;
   double get sh => MediaQuery.of(this).size.height;
+}
+
+extension TranslationContext on BuildContext {
+  AppLocalizations get l10n => AppLocalizations.of(this);
 }

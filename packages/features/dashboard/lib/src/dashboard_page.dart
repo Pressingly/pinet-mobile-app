@@ -69,12 +69,12 @@ class _DashboardPageState extends State<DashboardPage>
         ),
         const Gap(64),
         Text(
-          'Simplify  your digital  consumption',
+          context.l10n.dashboardSlogan,
           style: context.textTheme.bodyLargeProminent,
         ),
         const Gap(12),
         Text(
-          'PINET makes your digital consumption more\nconvenient and accessible',
+          context.l10n.dashboardSloganFootnote,
           style: context.textTheme.bodyMedium,
           textAlign: TextAlign.center,
         ),
@@ -87,7 +87,7 @@ class _DashboardPageState extends State<DashboardPage>
             );
           },
           child: Text(
-            "I'm ready to begin",
+            context.l10n.dashboardStartButton,
             style: context.textTheme.labelLarge?.copyWith(
               color: context.theme.colorScheme.onPrimary,
             ),

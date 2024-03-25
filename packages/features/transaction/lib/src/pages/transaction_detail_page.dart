@@ -13,7 +13,7 @@ class TransactionDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Transaction Details'),
+        title: Text(context.l10n.transactionDetails),
         centerTitle: true,
         leading: IconButton(
           onPressed: () => context.router.back(),
@@ -69,7 +69,7 @@ class TransactionDetailPage extends StatelessWidget {
                         ),
                       ),
                       const Gap(8),
-                      _buildTitleLabel(theme, 'Publisher'),
+                      _buildTitleLabel(theme, context.l10n.publisher),
                       const Gap(2),
                       _buildContentLabel(theme, 'New York Times'),
                       Padding(
@@ -81,7 +81,8 @@ class TransactionDetailPage extends StatelessWidget {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                _buildTitleLabel(theme, 'Transaction Date'),
+                                _buildTitleLabel(
+                                    theme, context.l10n.transactionDate),
                                 const Gap(2),
                                 _buildContentLabel(
                                   theme,
@@ -93,7 +94,7 @@ class TransactionDetailPage extends StatelessWidget {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                _buildTitleLabel(theme, 'Status'),
+                                _buildTitleLabel(theme, context.l10n.status),
                                 const Gap(2),
                                 Container(
                                   padding: const EdgeInsets.symmetric(
@@ -108,7 +109,7 @@ class TransactionDetailPage extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(4),
                                   ),
                                   child: Text(
-                                    'Success',
+                                    context.l10n.statusSuccess,
                                     style: theme.textTheme.labelSmall,
                                   ),
                                 ),
@@ -118,7 +119,7 @@ class TransactionDetailPage extends StatelessWidget {
                         ),
                       ),
                       const Gap(8),
-                      _buildTitleLabel(theme, 'Description'),
+                      _buildTitleLabel(theme, context.l10n.description),
                       const Gap(2),
                       _buildContentLabel(
                         theme,

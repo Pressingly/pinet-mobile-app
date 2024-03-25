@@ -21,7 +21,7 @@ class TransactionHomePage extends StatelessWidget {
           children: [
             _buildGeneralInfosPanel(context),
             const Gap(16),
-            Expanded(child: _buildTransactionListPanel()),
+            Expanded(child: _buildTransactionListPanel(context)),
           ],
         ),
       ),
@@ -80,7 +80,7 @@ class TransactionHomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Accounts',
+                    context.l10n.accounts,
                     style: context.theme.textTheme.titleSmall?.copyWith(
                       color: context.theme.colorScheme.onSurfaceVariant,
                     ),
@@ -94,7 +94,7 @@ class TransactionHomePage extends StatelessWidget {
                   ),
                   const Gap(8),
                   Text(
-                    'Due date: 17 Oct 2024',
+                    context.l10n.dueDate('17 Oct 2024'),
                     style: context.theme.textTheme.bodySmall?.copyWith(
                       color: context.theme.colorScheme.onSurfaceVariant,
                     ),
@@ -103,7 +103,7 @@ class TransactionHomePage extends StatelessWidget {
               ),
             ),
             ActionChip(
-              label: const Text('This month'),
+              label: Text(context.l10n.thisMonth),
               avatar: const Icon(Icons.today),
               onPressed: () => _onSelectMonthButtonPressed(context),
             ),
@@ -113,16 +113,16 @@ class TransactionHomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildTransactionListPanel() {
+  Widget _buildTransactionListPanel(BuildContext context) {
     final transactions = List.generate(3, (index) => index + 1);
     return Card.outlined(
       child: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.all(16),
+          Padding(
+            padding: const EdgeInsets.all(16),
             child: Align(
               alignment: Alignment.topLeft,
-              child: Text('Transactions'),
+              child: Text(context.l10n.transactions),
             ),
           ),
           Expanded(

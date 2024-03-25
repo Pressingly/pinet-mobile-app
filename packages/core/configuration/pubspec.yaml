@@ -15,10 +15,8 @@ dependencies:
     path: ../design
   routing:
     path: ../routing
-  dashboard:
-    path: ../../features/dashboard
   # End of Internal Packages
-  
+
   envied: ^0.5.3
   flutter:
     sdk: flutter
