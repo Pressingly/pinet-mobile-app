@@ -8,6 +8,7 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  animations: ^2.0.11
   authentication:
     path: ../../features/authentication
   auto_route: ^7.9.0

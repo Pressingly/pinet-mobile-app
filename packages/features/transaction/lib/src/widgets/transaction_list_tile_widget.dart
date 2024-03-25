@@ -15,6 +15,7 @@ class TransactionListTileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Hero(
       tag: 'transaction-avatar-$transactionId',
+      transitionOnUserGestures: true,
       child: Card.filled(
         child: InkWell(
           onTap: () => context.router.push(

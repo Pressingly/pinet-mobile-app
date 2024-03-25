@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:authentication/authentication.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:dashboard/dashboard.dart';
@@ -30,14 +31,30 @@ class AppRouter extends _$AppRouter {
       AutoRoute(page: FaceIDSetupRoute.page),
       AutoRoute(page: TouchIDSetupRoute.page),
       AutoRoute(page: PinCodeSetupRoute.page),
-      AutoRoute(
+      CustomRoute(
         page: HomeRoute.page,
         children: [
           AutoRoute(page: TransactionHomeRoute.page, initial: true),
           AutoRoute(page: SettingsHomeRoute.page),
         ],
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeThroughTransition(
+            animation: animation,
+            secondaryAnimation: secondaryAnimation,
+            child: child,
+          );
+        },
       ),
-      AutoRoute(page: TransactionDetailRoute.page),
+      CustomRoute(
+        page: TransactionDetailRoute.page,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeThroughTransition(
+            animation: animation,
+            secondaryAnimation: secondaryAnimation,
+            child: child,
+          );
+        },
+      ),
     ];
   }
 }

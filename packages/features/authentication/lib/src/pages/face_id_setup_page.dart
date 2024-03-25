@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:design/design.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:local_auth/local_auth.dart';
 
 @RoutePage()
 class FaceIDSetupPage extends StatelessWidget {
@@ -38,7 +42,13 @@ class FaceIDSetupPage extends StatelessWidget {
             ),
             const Spacer(),
             FilledButton(
-              onPressed: () {},
+              onPressed: () async {
+                if (await _authenticateUser()) {
+                  context.router.replaceAll([
+                    const PageRouteInfo('HomeRoute'),
+                  ]);
+                }
+              },
               style: FilledButton.styleFrom(
                 fixedSize: Size(context.sw - 64, 40),
               ),
@@ -48,5 +58,28 @@ class FaceIDSetupPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<bool> _authenticateUser() async {
+    final localAuthentication = LocalAuthentication();
+    var isAuthenticated = false;
+    final isBiometricSupported = await localAuthentication.isDeviceSupported();
+    final canCheckBiometrics = await localAuthentication.canCheckBiometrics;
+
+    if (isBiometricSupported && canCheckBiometrics) {
+      try {
+        isAuthenticated = await localAuthentication.authenticate(
+          localizedReason:
+              'Enabling Face ID will give you faster access to your information',
+          options: const AuthenticationOptions(
+            biometricOnly: true,
+            stickyAuth: true,
+          ),
+        );
+      } on PlatformException catch (e) {
+        log('Error: $e');
+      }
+    }
+    return isAuthenticated;
   }
 }

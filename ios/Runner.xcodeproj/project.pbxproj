@@ -206,7 +206,6 @@
 				12A0D32983C27C18939F58F1 /* Pods-RunnerTests.profile-prod.xcconfig */,
 				5174F17197A7AB4A5ECF362D /* Pods-RunnerTests.release-prod.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -615,6 +614,7 @@
 			buildSettings = {
 				BUNDLE_DISPLAY_NAME = PINET;
 				BUNDLE_NAME = PINET;
+				DEVELOPMENT_TEAM = WU53KX8R8A;
 				FLUTTER_TARGET = lib/main.dart;
 				PRODUCT_NAME = Runner;
 			};
@@ -626,6 +626,7 @@
 			buildSettings = {
 				BUNDLE_DISPLAY_NAME = PINET;
 				BUNDLE_NAME = PINET;
+				DEVELOPMENT_TEAM = WU53KX8R8A;
 				FLUTTER_TARGET = lib/main.dart;
 				PRODUCT_NAME = Runner;
 			};
@@ -637,6 +638,7 @@
 			buildSettings = {
 				BUNDLE_DISPLAY_NAME = PINET;
 				BUNDLE_NAME = PINET;
+				DEVELOPMENT_TEAM = WU53KX8R8A;
 				FLUTTER_TARGET = lib/main.dart;
 				PRODUCT_NAME = Runner;
 			};

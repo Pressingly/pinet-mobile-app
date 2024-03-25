@@ -140,7 +140,7 @@ class TransactionDetailPage extends StatelessWidget {
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: theme.colorScheme.surface.withOpacity(0.25),
+                          color: theme.colorScheme.scrim.withOpacity(0.25),
                           blurRadius: 4,
                           offset: const Offset(0, 4),
                         ),

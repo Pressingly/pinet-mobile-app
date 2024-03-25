@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:design/design.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +17,8 @@ class HomePage extends StatelessWidget {
         TransactionHomeRoute(),
         SettingsHomeRoute(),
       ],
-      transitionBuilder: (context, child, animation) => FadeTransition(
-        opacity: animation,
+      transitionBuilder: (context, child, animation) => FadeScaleTransition(
+        animation: animation,
         child: child,
       ),
       builder: (context, child) {
